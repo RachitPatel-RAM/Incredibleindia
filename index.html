@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incredible India - A Journey Through Colors & Cultures</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Homemade+Apple&family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loader Screen -->
+    <div id="loader" class="loader-screen">
+        <video autoplay muted loop class="loader-video">
+            <source src="assets/videos/loader/loader.mp4" type="video/mp4">
+        </video>
+        <div class="loader-overlay"></div>
+        <div class="loader-content">
+            <h1 class="loader-text"></h1>
+
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="assets/logo.png" alt="Logo" class="navbar-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#regions">Regions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#festivals">Festivals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#flavors">Flavors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#adventure">Adventure</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-video-container">
+            <video autoplay muted loop class="hero-video">
+                <source src="assets/videos/hero/hero.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Incredible <span class="char-bha">भा</span><span class="char-ra">र</span><span class="char-ta">त</span></h1>
+        </div>
+    </section>
+
+    <!-- Regions Section -->
+    <section id="regions" class="regions-section py-5 section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-2">
+                    <h6 class="section-name">REGIONS</h6>
+                </div>
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title magical-text">Regions of Wonder</h2>
+                    <div class="lotus-divider"></div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="region-card magical-card" data-bs-toggle="modal" data-bs-target="#rajasthanModal">
+                        <div class="region-image" style="background-image: url('assets/images/Regions/Rajasthani.png')"></div>
+                        <div class="region-overlay">
+                            <h4>Rajasthan</h4>
+                            <p>Land of Kings</p>
+                            <div class="card-sparkles"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="region-card magical-card" data-bs-toggle="modal" data-bs-target="#keralaModal">
+                        <div class="region-image" style="background-image: url('assets/images/Regions/keral.png')"></div>
+                        <div class="region-overlay">
+                            <h4>Kerala</h4>
+                            <p>God's Own Country</p>
+                            <div class="card-sparkles"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="region-card magical-card" data-bs-toggle="modal" data-bs-target="#ladakhModal">
+                        <div class="region-image" style="background-image: url('assets/images/Regions/ladak.png')"></div>
+                        <div class="region-overlay">
+                            <h4>Ladakh</h4>
+                            <p>Little Tibet</p>
+                            <div class="card-sparkles"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="region-card magical-card" data-bs-toggle="modal" data-bs-target="#goaModal">
+                        <div class="region-image" style="background-image: url('assets/images/Regions/goa.png')"></div>
+                        <div class="region-overlay">
+                            <h4>Goa</h4>
+                            <p>Beach Paradise</p>
+                            <div class="card-sparkles"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="region-card magical-card" data-bs-toggle="modal" data-bs-target="#himachalModal">
+                        <div class="region-image" style="background-image: url('assets/images/Regions/himalayan.png')"></div>
+                        <div class="region-overlay">
+                            <h4>Himachal Pradesh</h4>
+                            <p>Land of Gods</p>
+                            <div class="card-sparkles"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="region-card magical-card" data-bs-toggle="modal" data-bs-target="#uttarModal">
+                        <div class="region-image" style="background-image: url('assets/images/Regions/Varanasi.png')"></div>
+                        <div class="region-overlay">
+                            <h4>Uttar Pradesh</h4>
+                            <p>Heart of India</p>
+                            <div class="card-sparkles"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="region-card magical-card" data-bs-toggle="modal" data-bs-target="#northeastModal">
+                        <div class="region-image" style="background-image: url('assets/images/Regions/norteast.png')"></div>
+                        <div class="region-overlay">
+                            <h4>Northeast</h4>
+                            <p>Seven Sisters</p>
+                            <div class="card-sparkles"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="region-card magical-card" data-bs-toggle="modal" data-bs-target="#tamilnaduModal">
+                        <div class="region-image" style="background-image: url('assets/images/Regions/Tamil.png')"></div>
+                        <div class="region-overlay">
+                            <h4>Tamil Nadu</h4>
+                            <p>Temple Land</p>
+                            <div class="card-sparkles"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Festivals Section -->
+    <section id="festivals" class="festivals-section py-5 section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-2">
+                    <h6 class="section-name">FESTIVALS</h6>
+                </div>
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title magical-text">Festivals Like No Other</h2>
+                    <div class="lotus-divider"></div>
+                </div>
+            </div>
+            <div id="festivalsCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#festivalsCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#festivalsCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#festivalsCarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#festivalsCarousel" data-bs-slide-to="3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="festival-slide holi-bg">
+                            <div class="festival-overlay">
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-8 text-center">
+                                            <h3>Holi</h3>
+                                            <!-- <p>The Festival of Colors - Experience the joy and vibrancy of India's most colorful celebration</p> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="festival-slide diwali-bg">
+                            <div class="festival-overlay">
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-8 text-center">
+                                            <h3>Diwali</h3>
+                                            <!-- <p>The Festival of Lights - Witness millions of lamps illuminating the darkness across India</p> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="festival-slide onam-bg">
+                            <div class="festival-overlay">
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-8 text-center">
+                                            <h3>Onam</h3>
+                                            <!-- <p>Kerala's Harvest Festival - Celebrate with traditional boat races and floral carpets</p> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="festival-slide durga-bg">
+                            <div class="festival-overlay">
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-8 text-center">
+                                            <h3>Durga Puja</h3>
+                                            <!-- <p>Bengal's Grand Celebration - Experience the artistic grandeur and cultural richness</p> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#festivalsCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#festivalsCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flavors Section -->
+    <section id="flavors" class="flavors-section py-5 section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-2">
+                    <h6 class="section-name">FLAVORS</h6>
+                </div>
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title magical-text">Flavors of India</h2>
+                    <div class="lotus-divider"></div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="food-card" data-bs-toggle="modal" data-bs-target="#biryaniModal">
+                        <div class="food-image biryani-bg"></div>
+                        <div class="food-overlay">
+                            <h4>Biryani</h4>
+                            <div class="steam-effect"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="food-card" data-bs-toggle="modal" data-bs-target="#dosaModal">
+                        <div class="food-image dosa-bg"></div>
+                        <div class="food-overlay">
+                            <h4>Dosa</h4>
+                            <div class="steam-effect"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="food-card" data-bs-toggle="modal" data-bs-target="#thaliModal">
+                        <div class="food-image thali-bg"></div>
+                        <div class="food-overlay">
+                            <h4>Thali</h4>
+                            <div class="steam-effect"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="food-card" data-bs-toggle="modal" data-bs-target="#chaiModal">
+                        <div class="food-image chai-bg"></div>
+                        <div class="food-overlay">
+                            <h4>Chai</h4>
+                            <div class="steam-effect"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="food-card" data-bs-toggle="modal" data-bs-target="#samosaModal">
+                        <div class="food-image samosa-bg"></div>
+                        <div class="food-overlay">
+                            <h4>Samosa</h4>
+                            <div class="steam-effect"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="food-card" data-bs-toggle="modal" data-bs-target="#curryModal">
+                        <div class="food-image curry-bg"></div>
+                        <div class="food-overlay">
+                            <h4>Curry</h4>
+                            <div class="steam-effect"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adventure Section -->
+    <section id="adventure" class="adventure-section py-5 section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-2">
+                    <h6 class="section-name">ADVENTURE</h6>
+                </div>
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title magical-text">Adventure Awaits</h2>
+                    <div class="lotus-divider"></div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-6">
+                    <div class="adventure-card tilt-card">
+                        <div class="adventure-image trekking-bg"></div>
+                        <div class="adventure-overlay">
+                            <h4>Trekking</h4>
+                            <p>Conquer the mighty Himalayas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="adventure-card tilt-card">
+                        <div class="adventure-image desert-bg"></div>
+                        <div class="adventure-overlay">
+                            <h4>Desert Safari</h4>
+                            <p>Explore the golden Thar Desert</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="adventure-card tilt-card">
+                        <div class="adventure-image rafting-bg"></div>
+                        <div class="adventure-overlay">
+                            <h4>River Rafting</h4>
+                            <p>Navigate the wild rapids</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="adventure-card tilt-card">
+                        <div class="adventure-image scuba-bg"></div>
+                        <div class="adventure-overlay">
+                            <h4>Scuba Diving</h4>
+                            <p>Discover underwater wonders</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5 section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-2">
+                    <h6 class="section-name">CONTACT</h6>
+                </div>
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title magical-text">Plan Your Journey</h2>
+                    <div class="lotus-divider"></div>
+                </div>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-contact">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15076905.96817093!2d72.09929!3d20.593684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1635789012345!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2025 Incredible India. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals for Regions -->
+    <!-- Rajasthan Modal -->
+    <div class="modal fade" id="rajasthanModal" tabindex="-1" aria-labelledby="rajasthanModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content magical-modal">
+                <div class="modal-header gradient-header">
+                    <h5 class="modal-title" id="rajasthanModalLabel">🏰 Rajasthan - Land of Kings</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="modal-image-container">
+                                <img src="assets/images/Regions/Rajasthani.png" alt="Rajasthan" class="modal-image">
+                                <div class="image-overlay">
+                                    <div class="overlay-text">Royal Heritage</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="modal-content-section">
+                                <h6 class="section-title">🌟 About Rajasthan</h6>
+                                <p class="modal-description">Experience the grandeur of India's royal past in Rajasthan, where magnificent palaces, imposing forts, and vibrant culture create an unforgettable journey through time.</p>
+                                
+                                <h6 class="section-title">📍 Must-Visit Places</h6>
+                                <div class="places-grid">
+                                    <div class="place-item">🏛️ Jaipur - Pink City</div>
+                                    <div class="place-item">🏰 Udaipur - City of Lakes</div>
+                                    <div class="place-item">🕌 Jodhpur - Blue City</div>
+                                    <div class="place-item">🏜️ Jaisalmer - Golden City</div>
+                                </div>
+                                
+                                <h6 class="section-title">💡 Travel Tips</h6>
+                                <ul class="travel-tips">
+                                    <li>Best time to visit: October to March</li>
+                                    <li>Don't miss the camel safari in Thar Desert</li>
+                                    <li>Try authentic Rajasthani thali</li>
+                                    <li>Shop for handicrafts and textiles</li>
+                                </ul>
+                                
+                                <div class="fun-fact">
+                                    <h6 class="section-title">🎭 Fun Fact</h6>
+                                    <p>Rajasthan is home to the world's largest desert festival held annually in Jaisalmer!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kerala Modal -->
+    <div class="modal fade" id="keralaModal" tabindex="-1" aria-labelledby="keralaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content magical-modal">
+                <div class="modal-header gradient-header">
+                    <h5 class="modal-title" id="keralaModalLabel">🌴 Kerala - God's Own Country</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="modal-image-container">
+                                <img src="assets/images/Regions/keral.png" alt="Kerala" class="modal-image">
+                                <div class="image-overlay">
+                                    <div class="overlay-text">Tropical Paradise</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="modal-content-section">
+                                <h6 class="section-title">🌟 About Kerala</h6>
+                                <p class="modal-description">Discover Kerala's enchanting backwaters, pristine beaches, spice plantations, and Ayurvedic wellness traditions in this tropical paradise.</p>
+                                
+                                <h6 class="section-title">📍 Must-Visit Places</h6>
+                                <div class="places-grid">
+                                    <div class="place-item">🚤 Alleppey - Backwater Capital</div>
+                                    <div class="place-item">🏔️ Munnar - Hill Station</div>
+                                    <div class="place-item">🏖️ Kovalam - Beach Resort</div>
+                                    <div class="place-item">🌿 Thekkady - Wildlife Sanctuary</div>
+                                </div>
+                                
+                                <h6 class="section-title">💡 Travel Tips</h6>
+                                <ul class="travel-tips">
+                                    <li>Best time: September to March</li>
+                                    <li>Experience houseboat stay in backwaters</li>
+                                    <li>Try authentic Kerala cuisine</li>
+                                    <li>Book Ayurvedic spa treatments</li>
+                                </ul>
+                                
+                                <div class="fun-fact">
+                                    <h6 class="section-title">🎭 Fun Fact</h6>
+                                    <p>Kerala has the highest literacy rate in India at 93.91%!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ladakh Modal -->
+    <div class="modal fade" id="ladakhModal" tabindex="-1" aria-labelledby="ladakhModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content magical-modal">
+                <div class="modal-header gradient-header">
+                    <h5 class="modal-title" id="ladakhModalLabel">🏔️ Ladakh - Little Tibet</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="modal-image-container">
+                                <img src="assets/Regions/ladak.png" alt="Ladakh" class="modal-image">
+                                <div class="image-overlay">
+                                    <div class="overlay-text">Himalayan Paradise</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="modal-content-section">
+                                <h6 class="section-title">🌟 About Ladakh</h6>
+                                <p class="modal-description">Discover the mystical beauty of Ladakh, where ancient Buddhist monasteries perch on dramatic cliffs, pristine lakes reflect snow-capped peaks, and the spirit of the Himalayas touches your soul.</p>
+                                
+                                <h6 class="section-title">📍 Must-Visit Places</h6>
+                                <div class="places-grid">
+                                    <div class="place-item">🏛️ Leh Palace - Royal Heritage</div>
+                                    <div class="place-item">🏔️ Pangong Tso - Azure Lake</div>
+                                    <div class="place-item">🕌 Hemis Monastery - Spiritual Center</div>
+                                    <div class="place-item">🌄 Nubra Valley - Desert Oasis</div>
+                                </div>
+                                
+                                <h6 class="section-title">💡 Travel Tips</h6>
+                                <ul class="travel-tips">
+                                    <li>Best time to visit: May to September</li>
+                                    <li>Acclimatize properly due to high altitude</li>
+                                    <li>Carry warm clothing even in summer</li>
+                                    <li>Respect local Buddhist culture and traditions</li>
+                                </ul>
+                                
+                                <div class="fun-fact">
+                                    <h6 class="section-title">🎭 Fun Fact</h6>
+                                    <p>Ladakh is one of the coldest inhabited places on Earth, with temperatures dropping to -40°C in winter!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Goa Modal -->
+    <div class="modal fade" id="goaModal" tabindex="-1" aria-labelledby="goaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content magical-modal">
+                <div class="modal-header gradient-header">
+                    <h5 class="modal-title" id="goaModalLabel">🏖️ Goa - Beach Paradise</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="modal-image-container">
+                                <img src="assets/images/Regions/goa.png" alt="Goa" class="modal-image">
+                                <div class="image-overlay">
+                                    <div class="overlay-text">Coastal Bliss</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="modal-content-section">
+                                <h6 class="section-title">🌟 About Goa</h6>
+                                <p class="modal-description">Experience the perfect blend of sun, sand, and culture in Goa, where Portuguese colonial charm meets Indian warmth, creating a unique coastal paradise.</p>
+                                
+                                <h6 class="section-title">📍 Must-Visit Places</h6>
+                                <div class="places-grid">
+                                    <div class="place-item">🏖️ Baga Beach - Party Central</div>
+                                    <div class="place-item">⛪ Bom Jesus - Heritage Site</div>
+                                    <div class="place-item">🏰 Fort Aguada - Historic Fort</div>
+                                    <div class="place-item">🌊 Dudhsagar Falls - Nature's Wonder</div>
+                                </div>
+                                
+                                <h6 class="section-title">💡 Travel Tips</h6>
+                                <ul class="travel-tips">
+                                    <li>Best time to visit: November to February</li>
+                                    <li>Try authentic Goan cuisine and feni</li>
+                                    <li>Explore both North and South Goa</li>
+                                    <li>Book accommodations in advance during peak season</li>
+                                </ul>
+                                
+                                <div class="fun-fact">
+                                    <h6 class="section-title">🎭 Fun Fact</h6>
+                                    <p>Goa was a Portuguese colony for over 450 years, creating a unique Indo-Portuguese culture!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Food Modals -->
+    <!-- Biryani Modal -->
+    <div class="modal fade" id="biryaniModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Biryani - The Royal Rice</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="assets/images/Flavors/biriyani.png" class="img-fluid mb-3" alt="Biryani">
+                    <p>Biryani is a fragrant rice dish cooked with aromatic spices, meat, or vegetables. Each region has its unique style and flavor profile.</p>
+                    <h6>Best Places to Try:</h6>
+                    <ul>
+                        <li>Hyderabad - Hyderabadi Biryani</li>
+                        <li>Lucknow - Awadhi Biryani</li>
+                        <li>Kolkata - Kolkata Biryani</li>
+                        <li>Mumbai - Bombay Biryani</li>
+                    </ul>
+                    <p><strong>Fun Fact:</strong> The word "biryani" comes from the Persian word "birian" which means "fried before cooking".</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dosa Modal -->
+    <div class="modal fade" id="dosaModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Dosa - South Indian Delight</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="assets/images/Flavors/dosa.png" class="img-fluid mb-3" alt="Dosa">
+                    <p>Dosa is a crispy, thin pancake made from fermented rice and lentil batter. Served with coconut chutney and sambar, it's a perfect breakfast dish.</p>
+                    <h6>Best Places to Try:</h6>
+                    <ul>
+                        <li>Karnataka - Mysore Masala Dosa</li>
+                        <li>Tamil Nadu - Traditional Dosa</li>
+                        <li>Kerala - Appam and Dosa</li>
+                        <li>Andhra Pradesh - Pesarattu</li>
+                    </ul>
+                    <p><strong>Fun Fact:</strong> The largest dosa ever made was 4 feet in diameter!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thali Modal -->
+    <div class="modal fade" id="thaliModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thali - Complete Meal Experience</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="assets/images/Flavors/thali.png" class="img-fluid mb-3" alt="Thali">
+                    <p>Thali is a complete meal served on a large plate with various dishes including rice, bread, vegetables, dal, and dessert. It represents the diversity of Indian cuisine.</p>
+                    <h6>Regional Varieties:</h6>
+                    <ul>
+                        <li>Gujarati Thali - Sweet and Savory</li>
+                        <li>Rajasthani Thali - Rich and Spicy</li>
+                        <li>South Indian Thali - Rice-based</li>
+                        <li>Bengali Thali - Fish and Sweets</li>
+                    </ul>
+                    <p><strong>Philosophy:</strong> Thali represents the Indian concept of balanced nutrition and flavors in one meal.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Himachal Pradesh Modal -->
+    <div class="modal fade" id="himachalModal" tabindex="-1" aria-labelledby="himachalModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content magical-modal">
+                <div class="modal-header gradient-header">
+                    <h5 class="modal-title" id="himachalModalLabel">🏔️ Himachal Pradesh - Land of Snow</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="modal-image-container">
+                                <img src="assets/images/Regions/himalayan.png" alt="Himachal Pradesh" class="modal-image">
+                                <div class="image-overlay">
+                                    <div class="overlay-text">Mountain Paradise</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="modal-content-section">
+                                <h6 class="section-title">🌟 About Himachal Pradesh</h6>
+                                <p class="modal-description">Experience the serene beauty of Himachal Pradesh, where snow-capped mountains, lush valleys, and charming hill stations offer the perfect escape from city life.</p>
+                                
+                                <h6 class="section-title">📍 Must-Visit Places</h6>
+                                <div class="places-grid">
+                                    <div class="place-item">🏔️ Shimla - Queen of Hills</div>
+                                    <div class="place-item">🌲 Manali - Valley of Gods</div>
+                                    <div class="place-item">🏛️ Dharamshala - Dalai Lama's Residence</div>
+                                    <div class="place-item">🌸 Kasauli - Colonial Charm</div>
+                                </div>
+                                
+                                <h6 class="section-title">💡 Travel Tips</h6>
+                                <ul class="travel-tips">
+                                    <li>Best time: March to June, September to November</li>
+                                    <li>Try adventure sports in Manali</li>
+                                    <li>Visit apple orchards in season</li>
+                                    <li>Experience local Himachali cuisine</li>
+                                </ul>
+                                
+                                <div class="fun-fact">
+                                    <h6 class="section-title">🎭 Fun Fact</h6>
+                                    <p>Himachal Pradesh is known as the 'Apple State' of India, producing 90% of the country's apples!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Uttar Pradesh Modal -->
+    <div class="modal fade" id="uttarModal" tabindex="-1" aria-labelledby="uttarModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content magical-modal">
+                <div class="modal-header gradient-header">
+                    <h5 class="modal-title" id="uttarModalLabel">🕌 Uttar Pradesh - Heartland of India</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="modal-image-container">
+                                <img src="assets/images/Regions/Varanasi.png" alt="Uttar Pradesh" class="modal-image">
+                                <div class="image-overlay">
+                                    <div class="overlay-text">Cultural Heritage</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="modal-content-section">
+                                <h6 class="section-title">🌟 About Uttar Pradesh</h6>
+                                <p class="modal-description">Discover the spiritual and cultural heart of India in Uttar Pradesh, home to the iconic Taj Mahal, sacred Varanasi, and the birthplace of Lord Krishna.</p>
+                                
+                                <h6 class="section-title">📍 Must-Visit Places</h6>
+                                <div class="places-grid">
+                                    <div class="place-item">🕌 Agra - Taj Mahal</div>
+                                    <div class="place-item">🛕 Varanasi - Spiritual Capital</div>
+                                    <div class="place-item">🏛️ Lucknow - City of Nawabs</div>
+                                    <div class="place-item">🕉️ Mathura - Krishna's Birthplace</div>
+                                </div>
+                                
+                                <h6 class="section-title">💡 Travel Tips</h6>
+                                <ul class="travel-tips">
+                                    <li>Best time: October to March</li>
+                                    <li>Experience Ganga Aarti in Varanasi</li>
+                                    <li>Try authentic Awadhi cuisine</li>
+                                    <li>Visit during festivals for cultural immersion</li>
+                                </ul>
+                                
+                                <div class="fun-fact">
+                                    <h6 class="section-title">🎭 Fun Fact</h6>
+                                    <p>Uttar Pradesh is India's most populous state and has given the country 8 Prime Ministers!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Northeast Modal -->
+    <div class="modal fade" id="northeastModal" tabindex="-1" aria-labelledby="northeastModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content magical-modal">
+                <div class="modal-header gradient-header">
+                    <h5 class="modal-title" id="northeastModalLabel">🌿 Northeast India - Seven Sisters</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="modal-image-container">
+                                <img src="assets/images/Regions/norteast.png" alt="Northeast India" class="modal-image">
+                                <div class="image-overlay">
+                                    <div class="overlay-text">Pristine Wilderness</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="modal-content-section">
+                                <h6 class="section-title">🌟 About Northeast India</h6>
+                                <p class="modal-description">Explore the untouched beauty of Northeast India, where diverse tribes, pristine forests, and unique cultures create an enchanting mosaic of experiences.</p>
+                                
+                                <h6 class="section-title">📍 Must-Visit Places</h6>
+                                <div class="places-grid">
+                                    <div class="place-item">🌸 Shillong - Scotland of East</div>
+                                    <div class="place-item">🦏 Kaziranga - Rhino Sanctuary</div>
+                                    <div class="place-item">🏔️ Tawang - Monastery Town</div>
+                                    <div class="place-item">🌊 Dawki - Crystal Clear River</div>
+                                </div>
+                                
+                                <h6 class="section-title">💡 Travel Tips</h6>
+                                <ul class="travel-tips">
+                                    <li>Best time: October to April</li>
+                                    <li>Obtain Inner Line Permit for some states</li>
+                                    <li>Experience local tribal festivals</li>
+                                    <li>Try authentic northeastern cuisine</li>
+                                </ul>
+                                
+                                <div class="fun-fact">
+                                    <h6 class="section-title">🎭 Fun Fact</h6>
+                                    <p>Northeast India is home to over 200 different tribes and 400+ languages and dialects!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tamil Nadu Modal -->
+    <div class="modal fade" id="tamilnaduModal" tabindex="-1" aria-labelledby="tamilnaduModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content magical-modal">
+                <div class="modal-header gradient-header">
+                    <h5 class="modal-title" id="tamilnaduModalLabel">🏛️ Tamil Nadu - Land of Temples</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="modal-image-container">
+                                <img src="assets/images/Regions/Tamil.png" alt="Tamil Nadu" class="modal-image">
+                                <div class="image-overlay">
+                                    <div class="overlay-text">Temple Heritage</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="modal-content-section">
+                                <h6 class="section-title">🌟 About Tamil Nadu</h6>
+                                <p class="modal-description">Immerse yourself in Tamil Nadu's rich heritage, where ancient temples, classical arts, and vibrant traditions showcase the glory of Dravidian culture.</p>
+                                
+                                <h6 class="section-title">📍 Must-Visit Places</h6>
+                                <div class="places-grid">
+                                    <div class="place-item">🏛️ Madurai - Temple City</div>
+                                    <div class="place-item">🏖️ Mahabalipuram - Shore Temple</div>
+                                    <div class="place-item">🏔️ Ooty - Queen of Hill Stations</div>
+                                    <div class="place-item">🕌 Thanjavur - Brihadeeswarar Temple</div>
+                                </div>
+                                
+                                <h6 class="section-title">💡 Travel Tips</h6>
+                                <ul class="travel-tips">
+                                    <li>Best time: November to February</li>
+                                    <li>Experience classical Bharatanatyam dance</li>
+                                    <li>Try authentic South Indian cuisine</li>
+                                    <li>Visit during temple festivals</li>
+                                </ul>
+                                
+                                <div class="fun-fact">
+                                    <h6 class="section-title">🎭 Fun Fact</h6>
+                                    <p>Tamil is one of the world's oldest languages, with literature dating back over 2,000 years!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chai Modal -->
+    <div class="modal fade" id="chaiModal" tabindex="-1" aria-labelledby="chaiModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content magical-modal">
+                <div class="modal-header gradient-header">
+                    <h5 class="modal-title" id="chaiModalLabel">☕ Chai - India's Soul Drink</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="assets/images/Flavors/chai.png" class="img-fluid mb-3" alt="Chai">
+                    <p>Chai is more than just tea in India - it's a cultural experience that brings people together. This spiced tea blend is the perfect harmony of black tea, milk, sugar, and aromatic spices.</p>
+                    <h6>Popular Varieties:</h6>
+                    <ul>
+                        <li>Masala Chai - Spiced with cardamom, ginger, cinnamon</li>
+                        <li>Kulhad Chai - Served in clay cups</li>
+                        <li>Cutting Chai - Half portion served in Mumbai</li>
+                        <li>Kashmiri Chai - Pink tea with almonds</li>
+                    </ul>
+                    <p><strong>Cultural Significance:</strong> Chai is the social lubricant of India, enjoyed during conversations, meetings, and moments of relaxation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Samosa Modal -->
+    <div class="modal fade" id="samosaModal" tabindex="-1" aria-labelledby="samosaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content magical-modal">
+                <div class="modal-header gradient-header">
+                    <h5 class="modal-title" id="samosaModalLabel">🥟 Samosa - Crispy Delight</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="assets/images/Flavors/panipuri.png" class="img-fluid mb-3" alt="Samosa">
+                    <p>Samosa is India's beloved triangular pastry filled with spiced potatoes, peas, and sometimes meat. This crispy snack is perfect with chutneys and chai.</p>
+                    <h6>Popular Varieties:</h6>
+                    <ul>
+                        <li>Aloo Samosa - Classic potato filling</li>
+                        <li>Keema Samosa - Minced meat filling</li>
+                        <li>Paneer Samosa - Cottage cheese filling</li>
+                        <li>Sweet Samosa - Filled with khoya and dry fruits</li>
+                    </ul>
+                    <p><strong>Best Enjoyed With:</strong> Mint chutney, tamarind chutney, and a hot cup of chai for the perfect evening snack.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Curry Modal -->
+    <div class="modal fade" id="curryModal" tabindex="-1" aria-labelledby="curryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content magical-modal">
+                <div class="modal-header gradient-header">
+                    <h5 class="modal-title" id="curryModalLabel">🍛 Indian Curry - Flavor Symphony</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="assets/images/Flavors/mango.png" class="img-fluid mb-3" alt="Curry">
+                    <p>Indian curry is a complex blend of spices, herbs, and ingredients that creates a symphony of flavors. Each region has its unique curry preparations and techniques.</p>
+                    <h6>Regional Specialties:</h6>
+                    <ul>
+                        <li>Butter Chicken - North Indian creamy tomato curry</li>
+                        <li>Fish Curry - Coastal specialty with coconut</li>
+                        <li>Dal Curry - Lentil-based protein-rich curry</li>
+                        <li>Vegetable Curry - Seasonal vegetables in spiced gravy</li>
+                    </ul>
+                    <p><strong>Cooking Philosophy:</strong> Indian curries balance six tastes - sweet, sour, salty, bitter, pungent, and astringent for a complete culinary experience.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
