@@ -55,6 +55,9 @@
                         <a class="nav-link" href="#adventure">Adventure</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#quiz">Travel Quiz</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
@@ -375,6 +378,92 @@
                         <div class="adventure-overlay">
                             <h4>Scuba Diving</h4>
                             <p>Discover underwater wonders</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Quiz Section -->
+    <section id="quiz" class="quiz-section py-5 section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-2">
+                    <h6 class="section-name">DISCOVER</h6>
+                </div>
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title magical-text">Find Your Perfect Destination</h2>
+                    <div class="lotus-divider"></div>
+                    <p class="quiz-subtitle">Answer a few questions and let us suggest the perfect Indian destination for your next adventure!</p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="quiz-container magical-card">
+                        <div class="quiz-decorative-elements">
+                            <div class="floating-icon icon-1">🕌</div>
+                            <div class="floating-icon icon-2">🏔️</div>
+                            <div class="floating-icon icon-3">🌊</div>
+                            <div class="floating-icon icon-4">🐅</div>
+                            <div class="floating-icon icon-5">🎭</div>
+                            <div class="floating-icon icon-6">🛕</div>
+                        </div>
+                        
+                        <div id="quiz-start" class="quiz-start text-center">
+                            <div class="quiz-icon-container">
+                                <div class="quiz-icon">🧭</div>
+                                <div class="icon-ring"></div>
+                                <div class="icon-particles">
+                                    <span class="particle">✨</span>
+                                    <span class="particle">⭐</span>
+                                    <span class="particle">💫</span>
+                                    <span class="particle">🌟</span>
+                                </div>
+                            </div>
+                            <h3>Ready to Discover Your Dream Destination?</h3>
+                            <p>Take our personalized travel quiz to find the perfect Indian destination that matches your travel style and preferences.</p>
+                            <div class="quiz-features">
+                                <div class="feature-item">
+                                    <span class="feature-icon">🎯</span>
+                                    <span>Personalized</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">⚡</span>
+                                    <span>Quick & Fun</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">🗺️</span>
+                                    <span>Expert Curated</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary quiz-btn" onclick="startQuiz()">
+                                <span class="btn-text">Start Quiz</span>
+                                <span class="btn-icon">🚀</span>
+                            </button>
+                        </div>
+                        
+                        <div id="quiz-questions" class="quiz-questions" style="display: none;">
+                            <div class="quiz-progress">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text">Question <span id="current-question">1</span> of <span id="total-questions">8</span></span>
+                            </div>
+                            
+                            <div class="question-container">
+                                <h4 id="question-text"></h4>
+                                <div id="options-container" class="options-container"></div>
+                                <button class="btn btn-primary quiz-btn" id="next-btn" onclick="nextQuestion()" disabled>Next Question</button>
+                            </div>
+                        </div>
+                        
+                        <div id="quiz-result" class="quiz-result text-center" style="display: none;">
+                            <div class="result-icon">🎯</div>
+                            <h3>Your Perfect Destination</h3>
+                            <div id="result-content"></div>
+                            <button class="btn btn-secondary quiz-btn" onclick="restartQuiz()">Take Quiz Again</button>
                         </div>
                     </div>
                 </div>

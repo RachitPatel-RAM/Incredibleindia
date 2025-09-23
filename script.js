@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initCarousel();
     initLazyLoading();
     initHeroTitleScroll();
+    initMobileMenuClose();
 });
 
 
@@ -123,6 +124,26 @@ function initSmoothScrolling() {
     if (heroButton) {
         heroButton.addEventListener('click', smoothScroll);
     }
+}
+
+// Mobile Menu Auto-Close
+function initMobileMenuClose() {
+    const navbarCollapse = document.querySelector('#navbarNav');
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    
+    // Close mobile menu when any navigation link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Check if the navbar is currently expanded (mobile menu is open)
+            if (navbarCollapse.classList.contains('show')) {
+                // Use Bootstrap's collapse method to close the menu
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                    toggle: false
+                });
+                bsCollapse.hide();
+            }
+        });
+    });
 }
 
 // Scroll Animations
@@ -750,4 +771,446 @@ if ('performance' in window) {
             }
         }, 0);
     });
+}
+
+// Travel Quiz Functionality
+let currentQuestionIndex = 0;
+let userAnswers = [];
+let quizQuestions = [
+    {
+        question: "What type of vacation experience are you looking for?",
+        options: [
+            { text: "Adventure and thrill", value: "adventure" },
+            { text: "Cultural and historical exploration", value: "culture" },
+            { text: "Relaxation and beaches", value: "beach" },
+            { text: "Spiritual and peaceful retreat", value: "spiritual" }
+        ]
+    },
+    {
+        question: "What's your preferred climate?",
+        options: [
+            { text: "Cool and mountainous", value: "mountain" },
+            { text: "Tropical and warm", value: "tropical" },
+            { text: "Desert and dry", value: "desert" },
+            { text: "Moderate and pleasant", value: "moderate" }
+        ]
+    },
+    {
+        question: "Which activity interests you most?",
+        options: [
+            { text: "Trekking and hiking", value: "trekking" },
+            { text: "Visiting temples and monuments", value: "monuments" },
+            { text: "Water sports and beach activities", value: "watersports" },
+            { text: "Photography and sightseeing", value: "photography" }
+        ]
+    },
+    {
+        question: "What's your ideal accommodation?",
+        options: [
+            { text: "Luxury resort or palace hotel", value: "luxury" },
+            { text: "Heritage homestay", value: "heritage" },
+            { text: "Beach resort", value: "beachresort" },
+            { text: "Mountain lodge or camp", value: "lodge" }
+        ]
+    },
+    {
+        question: "Which cuisine excites you most?",
+        options: [
+            { text: "Spicy Rajasthani food", value: "rajasthani" },
+            { text: "South Indian delicacies", value: "southindian" },
+            { text: "Seafood and coastal cuisine", value: "seafood" },
+            { text: "Street food and local snacks", value: "streetfood" }
+        ]
+    },
+    {
+        question: "How do you prefer to travel?",
+        options: [
+            { text: "Royal train journeys", value: "train" },
+            { text: "Road trips and driving", value: "road" },
+            { text: "Boat rides and cruises", value: "boat" },
+            { text: "Domestic flights for convenience", value: "flight" }
+        ]
+    },
+    {
+        question: "What's your budget range?",
+        options: [
+            { text: "Luxury (₹50,000+ per person)", value: "luxury" },
+            { text: "Premium (₹25,000-50,000 per person)", value: "premium" },
+            { text: "Moderate (₹15,000-25,000 per person)", value: "moderate" },
+            { text: "Budget (Under ₹15,000 per person)", value: "budget" }
+        ]
+    },
+    {
+        question: "When do you prefer to travel?",
+        options: [
+            { text: "Winter (December-February)", value: "winter" },
+            { text: "Summer (March-May)", value: "summer" },
+            { text: "Monsoon (June-September)", value: "monsoon" },
+            { text: "Post-monsoon (October-November)", value: "postmonsoon" }
+        ]
+    }
+];
+
+let destinations = {
+    rajasthan: {
+        name: "Rajasthan - Land of Kings",
+        description: "Experience royal heritage, magnificent palaces, and desert adventures in the land of maharajas. Perfect for those seeking luxury, culture, and desert experiences.",
+        highlights: [
+            { icon: "🏰", title: "Royal Palaces", desc: "Stay in converted palace hotels" },
+            { icon: "🐪", title: "Desert Safari", desc: "Camel rides in Thar Desert" },
+            { icon: "🎭", title: "Folk Culture", desc: "Traditional music and dance" },
+            { icon: "🍛", title: "Royal Cuisine", desc: "Authentic Rajasthani delicacies" }
+        ],
+        bestTime: "October to March",
+        duration: "7-10 days"
+    },
+    kerala: {
+        name: "Kerala - God's Own Country",
+        description: "Discover tropical backwaters, lush hill stations, and pristine beaches. Ideal for relaxation, nature lovers, and those seeking peaceful retreats.",
+        highlights: [
+            { icon: "🛶", title: "Backwaters", desc: "Houseboat cruises in Alleppey" },
+            { icon: "🌴", title: "Hill Stations", desc: "Tea plantations in Munnar" },
+            { icon: "🏖️", title: "Beaches", desc: "Pristine coastline of Kovalam" },
+            { icon: "💆", title: "Ayurveda", desc: "Traditional wellness treatments" }
+        ],
+        bestTime: "September to March",
+        duration: "5-8 days"
+    },
+    ladakh: {
+        name: "Ladakh - Little Tibet",
+        description: "Adventure in the high-altitude desert with stunning landscapes, monasteries, and thrilling activities. Perfect for adventure seekers and nature enthusiasts.",
+        highlights: [
+            { icon: "🏔️", title: "High Altitude", desc: "Breathtaking mountain landscapes" },
+            { icon: "🏍️", title: "Bike Tours", desc: "Epic motorcycle journeys" },
+            { icon: "🕌", title: "Monasteries", desc: "Ancient Buddhist temples" },
+            { icon: "⭐", title: "Stargazing", desc: "Clear night skies" }
+        ],
+        bestTime: "May to September",
+        duration: "6-9 days"
+    },
+    goa: {
+        name: "Goa - Beach Paradise",
+        description: "Relax on golden beaches, enjoy water sports, and experience vibrant nightlife. Perfect for beach lovers, party enthusiasts, and water sports fans.",
+        highlights: [
+            { icon: "🏖️", title: "Beaches", desc: "Golden sand beaches" },
+            { icon: "🏄", title: "Water Sports", desc: "Surfing, parasailing, diving" },
+            { icon: "🎉", title: "Nightlife", desc: "Beach parties and clubs" },
+            { icon: "🍤", title: "Seafood", desc: "Fresh coastal cuisine" }
+        ],
+        bestTime: "November to February",
+        duration: "4-6 days"
+    },
+    himachal: {
+        name: "Himachal Pradesh - Land of Gods",
+        description: "Experience snow-capped mountains, adventure sports, and hill station charm. Ideal for adventure lovers, honeymooners, and mountain enthusiasts.",
+        highlights: [
+            { icon: "⛷️", title: "Adventure Sports", desc: "Skiing, paragliding, trekking" },
+            { icon: "🏔️", title: "Hill Stations", desc: "Shimla, Manali, Dharamshala" },
+            { icon: "❄️", title: "Snow Activities", desc: "Winter sports and snow fun" },
+            { icon: "🏛️", title: "Temples", desc: "Ancient mountain temples" }
+        ],
+        bestTime: "March to June, September to November",
+        duration: "5-8 days"
+    },
+    uttarpradesh: {
+        name: "Uttar Pradesh - Heart of India",
+        description: "Explore the cultural and spiritual heart of India with iconic monuments, holy cities, and rich heritage. Perfect for culture enthusiasts and spiritual seekers.",
+        highlights: [
+            { icon: "🕌", title: "Taj Mahal", desc: "Wonder of the world in Agra" },
+            { icon: "🛕", title: "Varanasi", desc: "Spiritual capital of India" },
+            { icon: "🏛️", title: "Heritage", desc: "Mughal and ancient architecture" },
+            { icon: "🎭", title: "Culture", desc: "Classical music and arts" }
+        ],
+        bestTime: "October to March",
+        duration: "6-10 days"
+    },
+    northeast: {
+        name: "Northeast India - Seven Sisters",
+        description: "Discover untouched natural beauty, unique tribal cultures, and biodiversity. Perfect for offbeat travelers, nature lovers, and cultural explorers.",
+        highlights: [
+            { icon: "🌿", title: "Biodiversity", desc: "Unique flora and fauna" },
+            { icon: "🎭", title: "Tribal Culture", desc: "Indigenous traditions" },
+            { icon: "🏞️", title: "Natural Beauty", desc: "Pristine landscapes" },
+            { icon: "🦋", title: "Wildlife", desc: "Rare species and sanctuaries" }
+        ],
+        bestTime: "October to April",
+        duration: "7-12 days"
+    },
+    tamilnadu: {
+        name: "Tamil Nadu - Temple Land",
+        description: "Immerse in Dravidian culture, magnificent temples, and classical arts. Ideal for history buffs, culture enthusiasts, and spiritual travelers.",
+        highlights: [
+            { icon: "🏛️", title: "Temples", desc: "Ancient Dravidian architecture" },
+            { icon: "🎭", title: "Classical Arts", desc: "Bharatanatyam and music" },
+            { icon: "🏖️", title: "Hill Stations", desc: "Ooty and Kodaikanal" },
+            { icon: "🍛", title: "Cuisine", desc: "Authentic South Indian food" }
+        ],
+        bestTime: "November to February",
+        duration: "6-9 days"
+    }
+};
+
+function startQuiz() {
+    document.getElementById('quiz-start').style.display = 'none';
+    document.getElementById('quiz-questions').style.display = 'block';
+    document.getElementById('total-questions').textContent = quizQuestions.length;
+    currentQuestionIndex = 0;
+    userAnswers = [];
+    showQuestion();
+}
+
+function showQuestion() {
+    const question = quizQuestions[currentQuestionIndex];
+    document.getElementById('question-text').textContent = question.question;
+    document.getElementById('current-question').textContent = currentQuestionIndex + 1;
+    
+    const optionsContainer = document.getElementById('options-container');
+    optionsContainer.innerHTML = '';
+    
+    question.options.forEach((option, index) => {
+        const optionDiv = document.createElement('div');
+        optionDiv.className = 'option-item';
+        optionDiv.innerHTML = `
+            <input type="radio" name="question${currentQuestionIndex}" value="${option.value}" id="option${index}">
+            <label for="option${index}">${option.text}</label>
+        `;
+        optionDiv.addEventListener('click', () => selectOption(optionDiv, option.value));
+        optionsContainer.appendChild(optionDiv);
+    });
+    
+    updateProgress();
+    document.getElementById('next-btn').disabled = true;
+}
+
+function selectOption(optionDiv, value) {
+    // Remove previous selection
+    document.querySelectorAll('.option-item').forEach(item => {
+        item.classList.remove('selected');
+    });
+    
+    // Add selection to clicked option
+    optionDiv.classList.add('selected');
+    optionDiv.querySelector('input').checked = true;
+    
+    // Store answer
+    userAnswers[currentQuestionIndex] = value;
+    
+    // Enable next button
+    document.getElementById('next-btn').disabled = false;
+}
+
+function nextQuestion() {
+    currentQuestionIndex++;
+    
+    if (currentQuestionIndex < quizQuestions.length) {
+        showQuestion();
+    } else {
+        showResult();
+    }
+}
+
+function updateProgress() {
+    const progress = ((currentQuestionIndex + 1) / quizQuestions.length) * 100;
+    document.querySelector('.progress-bar').style.width = progress + '%';
+}
+
+function showResult() {
+    document.getElementById('quiz-questions').style.display = 'none';
+    document.getElementById('quiz-result').style.display = 'block';
+    
+    const recommendedDestination = calculateDestination();
+    const destination = destinations[recommendedDestination];
+    
+    const resultContent = document.getElementById('result-content');
+    resultContent.innerHTML = `
+        <div class="result-destination">
+            <h4>${destination.name}</h4>
+            <p>${destination.description}</p>
+            <div class="result-highlights">
+                ${destination.highlights.map(highlight => `
+                    <div class="highlight-item">
+                        <span class="icon">${highlight.icon}</span>
+                        <h6>${highlight.title}</h6>
+                        <p>${highlight.desc}</p>
+                    </div>
+                `).join('')}
+            </div>
+            <div class="mt-3">
+                <p><strong>Best Time to Visit:</strong> ${destination.bestTime}</p>
+                <p><strong>Recommended Duration:</strong> ${destination.duration}</p>
+            </div>
+        </div>
+    `;
+}
+
+function calculateDestination() {
+    const scores = {
+        rajasthan: 0,
+        kerala: 0,
+        ladakh: 0,
+        goa: 0,
+        himachal: 0,
+        uttarpradesh: 0,
+        northeast: 0,
+        tamilnadu: 0
+    };
+    
+    userAnswers.forEach((answer, index) => {
+        switch(index) {
+            case 0: // Experience type
+                if (answer === 'adventure') {
+                    scores.ladakh += 3;
+                    scores.himachal += 3;
+                    scores.northeast += 2;
+                } else if (answer === 'culture') {
+                    scores.rajasthan += 3;
+                    scores.uttarpradesh += 3;
+                    scores.tamilnadu += 3;
+                } else if (answer === 'beach') {
+                    scores.goa += 3;
+                    scores.kerala += 2;
+                } else if (answer === 'spiritual') {
+                    scores.uttarpradesh += 3;
+                    scores.kerala += 2;
+                    scores.tamilnadu += 2;
+                }
+                break;
+            case 1: // Climate
+                if (answer === 'mountain') {
+                    scores.ladakh += 3;
+                    scores.himachal += 3;
+                    scores.northeast += 2;
+                } else if (answer === 'tropical') {
+                    scores.kerala += 3;
+                    scores.goa += 2;
+                    scores.tamilnadu += 2;
+                } else if (answer === 'desert') {
+                    scores.rajasthan += 3;
+                    scores.ladakh += 2;
+                } else if (answer === 'moderate') {
+                    scores.himachal += 2;
+                    scores.uttarpradesh += 2;
+                    scores.northeast += 2;
+                }
+                break;
+            case 2: // Activities
+                if (answer === 'trekking') {
+                    scores.ladakh += 3;
+                    scores.himachal += 3;
+                    scores.northeast += 2;
+                } else if (answer === 'monuments') {
+                    scores.rajasthan += 3;
+                    scores.uttarpradesh += 3;
+                    scores.tamilnadu += 3;
+                } else if (answer === 'watersports') {
+                    scores.goa += 3;
+                    scores.kerala += 2;
+                } else if (answer === 'photography') {
+                    scores.ladakh += 2;
+                    scores.kerala += 2;
+                    scores.northeast += 3;
+                }
+                break;
+            case 3: // Accommodation
+                if (answer === 'luxury') {
+                    scores.rajasthan += 3;
+                    scores.kerala += 2;
+                    scores.goa += 2;
+                } else if (answer === 'heritage') {
+                    scores.rajasthan += 3;
+                    scores.uttarpradesh += 2;
+                    scores.tamilnadu += 2;
+                } else if (answer === 'beachresort') {
+                    scores.goa += 3;
+                    scores.kerala += 2;
+                } else if (answer === 'lodge') {
+                    scores.ladakh += 3;
+                    scores.himachal += 3;
+                    scores.northeast += 2;
+                }
+                break;
+            case 4: // Cuisine
+                if (answer === 'rajasthani') {
+                    scores.rajasthan += 3;
+                } else if (answer === 'southindian') {
+                    scores.kerala += 3;
+                    scores.tamilnadu += 3;
+                } else if (answer === 'seafood') {
+                    scores.goa += 3;
+                    scores.kerala += 2;
+                } else if (answer === 'streetfood') {
+                    scores.uttarpradesh += 2;
+                    scores.rajasthan += 2;
+                    scores.tamilnadu += 2;
+                }
+                break;
+            case 5: // Travel mode
+                if (answer === 'train') {
+                    scores.rajasthan += 2;
+                    scores.uttarpradesh += 2;
+                } else if (answer === 'road') {
+                    scores.ladakh += 3;
+                    scores.himachal += 2;
+                    scores.northeast += 2;
+                } else if (answer === 'boat') {
+                    scores.kerala += 3;
+                    scores.goa += 2;
+                } else if (answer === 'flight') {
+                    scores.northeast += 2;
+                    scores.ladakh += 2;
+                }
+                break;
+            case 6: // Budget
+                if (answer === 'luxury') {
+                    scores.rajasthan += 2;
+                    scores.kerala += 2;
+                } else if (answer === 'premium') {
+                    scores.goa += 2;
+                    scores.himachal += 2;
+                } else if (answer === 'moderate') {
+                    scores.uttarpradesh += 2;
+                    scores.tamilnadu += 2;
+                } else if (answer === 'budget') {
+                    scores.northeast += 2;
+                    scores.ladakh += 1;
+                }
+                break;
+            case 7: // Season
+                if (answer === 'winter') {
+                    scores.rajasthan += 2;
+                    scores.goa += 3;
+                    scores.kerala += 2;
+                } else if (answer === 'summer') {
+                    scores.ladakh += 3;
+                    scores.himachal += 3;
+                } else if (answer === 'monsoon') {
+                    scores.kerala += 2;
+                    scores.northeast += 3;
+                } else if (answer === 'postmonsoon') {
+                    scores.uttarpradesh += 2;
+                    scores.tamilnadu += 2;
+                }
+                break;
+        }
+    });
+    
+    // Find destination with highest score
+    let maxScore = 0;
+    let recommendedDestination = 'rajasthan';
+    
+    for (let destination in scores) {
+        if (scores[destination] > maxScore) {
+            maxScore = scores[destination];
+            recommendedDestination = destination;
+        }
+    }
+    
+    return recommendedDestination;
+}
+
+function restartQuiz() {
+    document.getElementById('quiz-result').style.display = 'none';
+    document.getElementById('quiz-start').style.display = 'block';
+    currentQuestionIndex = 0;
+    userAnswers = [];
 }
