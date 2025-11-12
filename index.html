@@ -38,6 +38,19 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Search & Filter (non-intrusive) -->
+                <form id="searchForm" class="d-flex align-items-center search-form ms-auto me-3" role="search" onsubmit="return false;">
+                    <label for="siteSearch" class="visually-hidden">Search</label>
+                    <input id="siteSearch" class="form-control me-2" type="search" placeholder="Search (Regions, Flavors, Adventure...)" aria-label="Search">
+                    <select id="searchCategory" class="form-select me-2">
+                        <option value="all">All</option>
+                        <option value="regions">Regions</option>
+                        <option value="festivals">Festivals</option>
+                        <option value="flavors">Flavors</option>
+                        <option value="adventure">Adventure</option>
+                    </select>
+                    <button id="searchClear" class="btn btn-outline-light" type="button">Clear</button>
+                </form>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#home">Home</a>
