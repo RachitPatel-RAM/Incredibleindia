@@ -29,10 +29,110 @@ document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
     initParallax();
     initCarousel();
+    initSearchFilter();
     initLazyLoading();
     initHeroTitleScroll();
     initMobileMenuClose();
 });
+
+// Search & Filter feature (non-destructive)
+function initSearchFilter() {
+    const searchInput = document.getElementById('siteSearch');
+    const categorySelect = document.getElementById('searchCategory');
+    const clearBtn = document.getElementById('searchClear');
+    if (!searchInput || !categorySelect) return;
+
+    const debouncedFilter = debounce(handleFilter, 200);
+
+    searchInput.addEventListener('input', debouncedFilter);
+    categorySelect.addEventListener('change', debouncedFilter);
+    clearBtn && clearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        categorySelect.value = 'all';
+        handleFilter();
+    });
+
+    // Run once to ensure UI is consistent
+    handleFilter();
+
+    function handleFilter() {
+        const query = (searchInput.value || '').trim().toLowerCase();
+        const category = categorySelect.value;
+
+        // Mapping category -> selector(s)
+        const mapping = {
+            regions: '.region-card',
+            flavors: '.food-card',
+            adventure: '.adventure-card',
+            festivals: '.festival-slide',
+            all: '.region-card, .food-card, .adventure-card, .festival-slide'
+        };
+
+        const selectors = mapping[category] || mapping['all'];
+        // First, reset all items
+        const allItems = document.querySelectorAll('.region-card, .food-card, .adventure-card, .festival-slide');
+        allItems.forEach(item => {
+            item.classList.remove('muted');
+            item.style.display = '';
+        });
+        // Also restore any carousel-item wrappers that may have been hidden by previous searches
+        const carouselItems = document.querySelectorAll('#festivalsCarousel .carousel-item');
+        carouselItems.forEach(ci => {
+            ci.style.display = '';
+        });
+        // Ensure the carousel container is visible again
+        const festivalCarousel = document.getElementById('festivalsCarousel');
+        if (festivalCarousel) festivalCarousel.style.display = '';
+
+        if (!query) return; // empty query -> show everything
+
+        // For each selected group, hide those that don't match query
+        const items = document.querySelectorAll(selectors);
+        const lowerQuery = query.toLowerCase();
+
+        // Helper to get text to match from an element
+        const getTextFor = (el) => {
+            // Prefer titles inside overlay/h3/h4
+            const h4 = el.querySelector('h4');
+            if (h4 && h4.textContent) return h4.textContent.toLowerCase();
+            const h3 = el.querySelector('h3');
+            if (h3 && h3.textContent) return h3.textContent.toLowerCase();
+            return (el.textContent || '').toLowerCase();
+        };
+
+    // First mark all as muted, then unmute matches so that non-matching areas are visually de-emphasized
+    allItems.forEach(item => item.classList.add('muted'));
+
+        let anyMatchInSection = false;
+        items.forEach(item => {
+            const text = getTextFor(item);
+            if (text.indexOf(lowerQuery) !== -1) {
+                // match -> unmute and ensure visible
+                item.classList.remove('muted');
+                item.style.display = '';
+                anyMatchInSection = true;
+            } else {
+                // keep muted; leave in document for layout but de-emphasized
+                // For festival slides (carousel items), hide the carousel-item when not matching so carousel doesn't show empty slides
+                if (item.classList.contains('festival-slide')) {
+                    // festival-slide inside carousel-item -> hide wrapper so carousel doesn't show empty slides
+                    const carouselItem = item.closest('.carousel-item');
+                    if (carouselItem) carouselItem.style.display = 'none';
+                }
+            }
+        });
+
+        // If filtering festivals only and none matched, leave a subtle notification
+        if (category === 'festivals') {
+            const carousel = document.getElementById('festivalsCarousel');
+            if (carousel) {
+                const anyVisible = Array.from(carousel.querySelectorAll('.carousel-item')).some(ci => ci.style.display !== 'none');
+                // If none visible, hide the whole carousel container to avoid empty controls
+                carousel.style.display = anyVisible ? '' : 'none';
+            }
+        }
+    }
+}
 
 
 
