@@ -2381,3 +2381,48 @@ h1, h2, h3, h4, h5, h6 {
         background-position: 100% 50%;
     }
 }
+
+/* Search form in navbar */
+.search-form {
+    max-width: 720px;
+}
+.search-form .form-control {
+    min-width: 220px;
+    max-width: 360px;
+    border-radius: 30px;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+}
+.search-form .form-control::placeholder {
+    color: rgba(255,255,255,0.8);
+}
+.search-form .form-select {
+    min-width: 140px;
+    max-width: 160px;
+    border-radius: 30px;
+    padding: 0.25rem 0.75rem;
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.12);
+}
+.search-form .btn-outline-light {
+    border-radius: 30px;
+    padding: 0.4rem 0.8rem;
+}
+
+/* Styles applied when filtering to fade non-matching cards */
+.muted {
+    opacity: 0.2 !important;
+    transform: scale(0.98);
+    pointer-events: none;
+}
+
+/* Small adjustments for light navbar state */
+.navbar.scrolled .search-form .form-control,
+.navbar.scrolled .search-form .form-select {
+    color: #333;
+    background: #fff;
+    border-color: rgba(0,0,0,0.06);
+}
